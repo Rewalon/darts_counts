@@ -13,7 +13,7 @@ const acLabelTextStyle = TextStyle(
 );
 
 const acTitleTextStyle = TextStyle(
-  fontSize: 40.0,
+  fontSize: 20.0,
   fontWeight: FontWeight.bold,
 );
 

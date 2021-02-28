@@ -26,19 +26,14 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
-class GridViewBuilderWidget extends StatefulWidget {
-  GridViewBuilderWidget({Key key}) : super(key: key);
-
-//  final String title;
-
-  @override
-  _GridViewBuilderWidget createState() => _GridViewBuilderWidget();
-}
-
 class _InputPageState extends State<InputPage> {
-  Player player;
-  var score1 = 0;
-  var score2 = 0;
+  Player player = Player.First;
+  var selectIndex = 0;
+  var multiple = 1;
+  var score1 = 301;
+  var score2 = 301;
+  var hit1 = 0;
+  var hit2 = 0;
   var round = 0;
 
   @override
@@ -73,6 +68,14 @@ class _InputPageState extends State<InputPage> {
                       Text(
                         'Player 1',
                         style: acTitleTextStyle,
+                      ),
+                      Text(
+                        '$score1',
+                        style: acLabelTextStyle,
+                      ),
+                      Text(
+                        'hits: $hit1',
+                        style: acLabelTextStyle,
                       )
                     ],
                   ),
@@ -93,6 +96,14 @@ class _InputPageState extends State<InputPage> {
                       Text(
                         'Player 2',
                         style: acTitleTextStyle,
+                      ),
+                      Text(
+                        '$score2',
+                        style: acLabelTextStyle,
+                      ),
+                      Text(
+                        'hits: $hit2',
+                        style: acLabelTextStyle,
                       )
                     ],
                   ),
@@ -100,16 +111,579 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Expanded(child: GridViewBuilderWidget()),
-          /*   Expanded(
+          Expanded(
             child: Row(
               children: <Widget>[
-                Expanded(child: ReusableCard()),
-                Expanded(child: ReusableCard()),
-                Expanded(child: ReusableCard())
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 20;
+                    });
+                  },
+                  color: selectIndex == 20
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '20',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 19;
+                    });
+                  },
+                  color: selectIndex == 19
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '19',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 18;
+                    });
+                  },
+                  color: selectIndex == 18
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '18',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 17;
+                    });
+                  },
+                  color: selectIndex == 17
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '17',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 16;
+                    });
+                  },
+                  color: selectIndex == 16
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '16',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
               ],
             ),
-          ), */
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 15;
+                    });
+                  },
+                  color: selectIndex == 15
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '15',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 14;
+                    });
+                  },
+                  color: selectIndex == 14
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '14',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 13;
+                    });
+                  },
+                  color: selectIndex == 13
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '13',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 12;
+                    });
+                  },
+                  color: selectIndex == 12
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '12',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 11;
+                    });
+                  },
+                  color: selectIndex == 11
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '11',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 10;
+                    });
+                  },
+                  color: selectIndex == 10
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '10',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 9;
+                    });
+                  },
+                  color: selectIndex == 9
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '9',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 8;
+                    });
+                  },
+                  color: selectIndex == 8
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '8',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 7;
+                    });
+                  },
+                  color: selectIndex == 7
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '7',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 6;
+                    });
+                  },
+                  color: selectIndex == 6
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '6',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 5;
+                    });
+                  },
+                  color: selectIndex == 5
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '5',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 4;
+                    });
+                  },
+                  color: selectIndex == 4
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '4',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 3;
+                    });
+                  },
+                  color: selectIndex == 3
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '3',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 2;
+                    });
+                  },
+                  color: selectIndex == 2
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '2',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 1;
+                    });
+                  },
+                  color: selectIndex == 1
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        '1',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 0;
+                    });
+                  },
+                  color: selectIndex == 0
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'miss',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 25;
+                    });
+                  },
+                  color: selectIndex == 25
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Bull',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      selectIndex = 50;
+                    });
+                  },
+                  color: selectIndex == 50
+                      ? acActiveCardColor
+                      : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'Bull\'s eye',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      multiple = 1;
+                    });
+                  },
+                  color:
+                      multiple == 1 ? acActiveCardColor : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'x1',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      multiple = 2;
+                    });
+                  },
+                  color:
+                      multiple == 2 ? acActiveCardColor : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'x2',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+                Expanded(
+                    child: ReusableCard(
+                  onTap: () {
+                    setState(() {
+                      multiple = 3;
+                    });
+                  },
+                  color:
+                      multiple == 3 ? acActiveCardColor : acInactiveCardColor,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'x3',
+                        style: acTitleTextStyle,
+                      )
+                    ],
+                  ),
+                )),
+              ],
+            ),
+          ),
+          Expanded(
+              child: ReusableCard(
+            onTap: () {
+              setState(() {
+                player == Player.First
+                    ? score1 = score1 - selectIndex * multiple
+                    : score2 = score2 - selectIndex * multiple;
+                player == Player.First ? hit1++ : hit2++;
+              });
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'COUNT',
+                  style: acTitleTextStyle,
+                )
+              ],
+            ),
+          )),
         ],
       ),
     );
@@ -135,108 +709,10 @@ class ReusableCard extends StatelessWidget {
         onTap: onTap,
         child: Container(
           child: child,
-          margin: EdgeInsets.all(10),
+          margin: EdgeInsets.all(5),
           decoration: BoxDecoration(
               color: color,
               borderRadius: BorderRadius.all(Radius.circular(10))),
-        ));
-  }
-}
-
-class _GridViewBuilderWidget extends State<GridViewBuilderWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 5,
-        ),
-        //reverse: true,
-        children: <Widget>[
-          TextWidget(
-            text: "20",
-            onTap: () {
-              setState(() {});
-            },
-          ),
-          TextWidget(
-            text: "19",
-          ),
-          TextWidget(
-            text: "18",
-          ),
-          TextWidget(
-            text: "17",
-          ),
-          TextWidget(
-            text: "16",
-          ),
-          TextWidget(
-            text: "15",
-          ),
-          TextWidget(
-            text: "14",
-          ),
-          TextWidget(
-            text: "13",
-          ),
-          TextWidget(
-            text: "12",
-          ),
-          TextWidget(
-            text: "11",
-          ),
-          TextWidget(
-            text: "10",
-          ),
-          TextWidget(
-            text: "9",
-          ),
-          TextWidget(
-            text: "8",
-          ),
-          TextWidget(
-            text: "7",
-          ),
-          TextWidget(
-            text: "6",
-          ),
-          TextWidget(
-            text: "5",
-          ),
-          TextWidget(
-            text: "4",
-          ),
-          TextWidget(
-            text: "3",
-          ),
-          TextWidget(
-            text: "2",
-          ),
-          TextWidget(
-            text: "1",
-          ),
-        ]);
-  }
-}
-
-class TextWidget extends StatelessWidget {
-  const TextWidget({Key key, this.text, this.onTap, this.color})
-      : super(key: key);
-  final Function onTap;
-  final String text;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        alignment: Alignment.center,
-        padding: EdgeInsets.all(20),
-        margin: EdgeInsets.all(5),
-        decoration:
-            BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
-        child: Text(
-          text,
-          style: acNumericTextStyle,
         ));
   }
 }
