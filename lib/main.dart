@@ -26,6 +26,15 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
+class GridViewBuilderWidget extends StatefulWidget {
+  GridViewBuilderWidget({Key key}) : super(key: key);
+
+//  final String title;
+
+  @override
+  _GridViewBuilderWidget createState() => _GridViewBuilderWidget();
+}
+
 class _InputPageState extends State<InputPage> {
   Player player;
   var score1 = 0;
@@ -134,7 +143,7 @@ class ReusableCard extends StatelessWidget {
   }
 }
 
-class GridViewBuilderWidget extends StatelessWidget {
+class _GridViewBuilderWidget extends State<GridViewBuilderWidget> {
   @override
   Widget build(BuildContext context) {
     return GridView(
@@ -145,6 +154,9 @@ class GridViewBuilderWidget extends StatelessWidget {
         children: <Widget>[
           TextWidget(
             text: "20",
+            onTap: () {
+              setState(() {});
+            },
           ),
           TextWidget(
             text: "19",
@@ -208,9 +220,11 @@ class GridViewBuilderWidget extends StatelessWidget {
 }
 
 class TextWidget extends StatelessWidget {
-  const TextWidget({Key key, this.text}) : super(key: key);
-
+  const TextWidget({Key key, this.text, this.onTap, this.color})
+      : super(key: key);
+  final Function onTap;
   final String text;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
